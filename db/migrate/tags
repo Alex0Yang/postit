@@ -1,0 +1,14 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AddUserToPosts	20150609062915_add_user_to_posts.rb	/^class AddUserToPosts < ActiveRecord::Migration$/;"	c
+CreateComments	20150609070952_create_comments.rb	/^class CreateComments < ActiveRecord::Migration$/;"	c
+CreatePosts	20150609060405_create_posts.rb	/^class CreatePosts < ActiveRecord::Migration$/;"	c
+CreateUsers	20150609061650_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+change	20150609060405_create_posts.rb	/^  def change$/;"	f	class:CreatePosts
+change	20150609061650_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	20150609062915_add_user_to_posts.rb	/^  def change$/;"	f	class:AddUserToPosts
+change	20150609070952_create_comments.rb	/^  def change$/;"	f	class:CreateComments
