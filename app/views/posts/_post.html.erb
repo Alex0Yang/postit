@@ -1,0 +1,40 @@
+<div class='row'>
+  <% if log_in? %>
+   <div class="well span0 text-center">
+     <%= link_to vote_post_path(post, vote:'true'), method: :post do %>
+       <i class="icon-arrow-up"></i>
+     <% end %>
+     <br />
+     <%= post.total_votes %> votes
+     <br />
+     <%= link_to vote_post_path(post, vote:'false'), method: :post do %>
+       <i class="icon-arrow-down"></i>
+     <% end %>
+   </div>
+  <% end %>
+
+  <div class="well span8">
+      <%= render post.categories %>
+      <h4><%= link_to post.title, post_path(post) %></h4>
+      <p><%= post.description %> </p>
+      <p>
+        <% unless post.creator.nil? %>
+          <span class='quiet'>posted by</span> <%= link_to post.creator.name, user_path(post.creator) %>
+          <small>at <%= fix_date(post.created_at) %></small>
+        <% end %>
+      </p>
+      <small>
+        <span>
+          <%= link_to("#{post.comments.size} comments", post_path(post)) %>
+        </span>
+      </small>
+      <% if log_in? && current_user_post?(post) %>
+        <p class='pull-right'>
+          [<%= link_to 'Edit', edit_post_path(post) %>]
+          [<%= link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %>]
+        </p>
+    <% end %>
+    </p>
+  </div>
+</div>
+

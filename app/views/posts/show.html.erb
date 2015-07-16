@@ -1,0 +1,43 @@
+<% if log_in? && current_user_post?(@post) %>
+  <p class='pull-right'>
+    [<%= link_to 'edit this post', edit_post_path(@post) %>]
+  </p>
+<% end %>
+
+<p>
+  <%= render @post.categories %>
+</p>
+
+<%= render 'shared/title',title:@post.title %>
+<p>
+<span class='label'>Url: </span>
+<%= link_to @post.url do %>
+  <%= @post.url %>
+<% end %>
+</p>
+
+<p>
+<span class='label'>Description:</span>
+<%= @post.description %>
+</p>
+
+<% if log_in? %>
+  <%= form_for [@post,@comment] do |f| %>
+    <%= render 'shared/error', ar:@comment %>
+    <div class="control-group">
+    <%= f.label :body,'Add new comment:' %>
+    <%= f.text_area :body, rows: 3, class: 'span4' %>
+    </div>
+    <%= f.submit 'Add comment', class:'btn btn-small btn-primary' %>
+  <% end %>
+<% end %>
+
+<span class='label'>Comments:</span>
+<p>
+
+</p>
+  <% @post.comments.each do |comment| %>
+    <%= render 'comments/comment', comment:comment %>
+  <% end %>
+
+<hr/>

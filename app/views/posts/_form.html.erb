@@ -1,0 +1,23 @@
+<%= form_for @post do |f| %>
+  <div class='row'>
+    <%= f.label 'Title' %>
+    <%= f.text_field :title %>
+  </div>
+  <div class='row'>
+    <%= f.label 'Url' %>
+    <%= f.text_field :url %>
+  </div>
+  <div class='row'>
+    <%= f.label 'Description' %>
+    <%= f.text_area :description, rows: 9 %>
+    </div>
+  <div class='row'>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+      <% b.label(class: "checkbox inline") { b.check_box + b.text} %>
+    <% end %>
+  </div>
+  <div class='row'>
+    <%= f.submit( @post.new_record? ? "Create Post" : "Update Post", class:"btn btn-primary") %>
+  </div>
+<% end %>
+
