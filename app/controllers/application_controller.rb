@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_same_user_to_edit_post
-    unless current_user.post_ids.include?(params[:id].to_i)
+    unless current_user.posts.include?(Post.find_by(slug: params[:id]))
       flash[:error] = "You're not allowed to edit this post. "
       redirect_to root_path
     end

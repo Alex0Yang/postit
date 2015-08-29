@@ -36,7 +36,7 @@
 <p>
 
 </p>
-  <% @post.comments.each do |comment| %>
+  <% @post.reload.comments.each do |comment| %>
     <%= render 'comments/comment', comment:comment %>
   <% end %>
 
